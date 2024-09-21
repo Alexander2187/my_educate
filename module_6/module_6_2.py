@@ -34,14 +34,6 @@ class Sedan(Vehicle):
 
 
 if __name__ == '__main__':
-    # print(f"\n       <-- Test -->\nif __name__ == '__main__':")
-    # vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
-    # # print(vehicle1.dir())
-    # vehicle1.print_info()
-    # # print(dir(vehicle1))
-    # vehicle1.set_color("черный")
-    # vehicle1.print_info()
-    # vehicle1.set_color("синий")
     # Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
     vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
 
