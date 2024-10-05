@@ -1,0 +1,5 @@
+The Python interpreter
+raises an exception
+when it detects
+run-time error
+(such as division by zero).
