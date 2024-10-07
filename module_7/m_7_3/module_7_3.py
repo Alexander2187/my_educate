@@ -62,7 +62,7 @@ class WordsFinder:
             position = None
             for index in range(len(all_words[key])):
                 if word == all_words[key][index]:
-                    position = index
+                    position = index + 1
                     break
             if isinstance(position, int):
                 result_find[key] = position
