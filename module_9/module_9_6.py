@@ -8,7 +8,7 @@ def all_variants(text):
             возвращаем срез, который короче предыдущего 
             на одну букву с конца строки. 'abcd', 'abc', 'ab', 'a'.
             """
-            yield (text[0:len(text)-index])
+            yield (text[0:len(text) - index])
         if len(text) > 0:
             is_letter = True
             """ Убираем одну букву с начала строки.  'abcd' -> 'bcd' """
@@ -17,10 +17,13 @@ def all_variants(text):
             is_letter = False
 
 
-a = all_variants("abc")
-for i in a:
-    print(i)
+if __name__ == '__main__':
+    print("------------------>  if __name__ == '__main__'  <------------------")
+    
+    a = all_variants("abc")
+    for i in a:
+        print(i)
 
-a = all_variants("Watermelon")
-for i in a:
-    print(i)
+    a = all_variants("Watermelon")
+    for i in a:
+        print(i)
