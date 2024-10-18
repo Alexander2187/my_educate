@@ -13,7 +13,6 @@ def is_prime(f):
         else:
             print("Составное")
             return var
-
     return wrapper
 
 
