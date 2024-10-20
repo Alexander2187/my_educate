@@ -10,7 +10,6 @@ class Bank:
 
     def deposit(self):
         for i in range(100):
-
             if self.lock.locked():
                 x = randint(50, 500)
                 self.balance += x
