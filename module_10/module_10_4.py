@@ -33,6 +33,7 @@ class Cafe:
             for table in self.tables:
                 if table.guest == None:
                     table.guest = guest
+                    table.guest.start() #
                     print(f"{guest.name} сел(-а) за стол номер {table.number}")
                     self.some_of_tables_is_not_empty = True
                     is_ok = True
