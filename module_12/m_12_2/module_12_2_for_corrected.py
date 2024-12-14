@@ -24,7 +24,7 @@ class TournamentTest(TestCase):
         setUp - метод, где создаются объекты класса Runner
         """
         #
-        # Для test_1, test_runner, test_toutnaments
+        # Для test_1, test_runner, test_tournaments
         # Бегуны с разной скоростью.
         self.a = cr_t.Runner("Первый", 100)
         self.b = cr_t.Runner("Второй", 10)
@@ -58,11 +58,11 @@ class TournamentTest(TestCase):
 
     def test_runner(self):
         """
-        Одни и те же участники учавствуют в нескольких забегах.
+        Одни и те же участники участвуют в нескольких забегах.
         Результаты участников в предыдущем забеге не должны влиять на результаты последующего.
         """
         # Зададим некоторые значения дистанции для каждого из участников.
-        # Проверим обнуляются ли значения дистанции с предыдущего забега.
+        # Проверим обнуляться ли значения дистанции с предыдущего забега.
         self.a.distance, self.b.distance, self.c.distance = 100, 1000, 10000
         x = cr_t.Tournament(90, self.a, self.b, self.c)
         f = x.start()
@@ -71,7 +71,7 @@ class TournamentTest(TestCase):
         self.all_results.append([f'{self.test_runner.__name__}: '])
         for key in f.keys():
             # Сравним имена победителей, со списком участников.
-            # Проверка работает корректно при условии
+            # Проверка работает корректно при условии,
             # что имена всех участников уникальны, а их скорости и дистанция заданны верно.
             self.assertTrue(f[key][0].name == prt[key - 1].name)
             self.all_results.append([f'\t\tМесто:  {key} {f[key][0].name} {prt[key - 1].name}'])
@@ -133,7 +133,7 @@ class TournamentTest(TestCase):
         self.all_results.append([f'{self.test_1.__name__}:'])
         for key in t_abc.keys():
             # Сравним два множества имен победителей, занявших одно и то же место.
-            # Проверка работает корректно при условии что имена всех участников уникальны.
+            # Проверка работает корректно при условии, что имена всех участников уникальны.
             var_1 = set([t_abc[key][index].name for index in range(len(t_abc[key]))])
             var_2 = set([t_cba[key][index].name for index in range(len(t_cba[key]))])
             self.assertTrue(var_1 == var_2)
@@ -143,7 +143,7 @@ class TournamentTest(TestCase):
         """
         Скорость двух или более бегунов равна или превышает длину дистанции забега.
         """
-        # Cкорость самого медленного бегуна.
+        # Скорость самого медленного бегуна.
         distance = min([x.speed for x in self.participants_with_speed_greater_than_distance])
         x = cr_t.Tournament(distance, self.participants_with_speed_greater_than_distance)
         #
@@ -166,7 +166,7 @@ class TournamentTest(TestCase):
             Более того, в случае радикальных изменений в классах Runner и Tournament, 
                 соответственно придётся полностью переписывать тесты.
 
-            Проверка работает корректно при условии что имена всех участников уникальны.
+            Проверка работает корректно при условии, что имена всех участников уникальны.
             """
             var_1 = set([finishers[key][index].name for index in range(len(finishers[key]))])
             var_2 = set([great_p[index].name for index in range(len(great_p))])
@@ -177,7 +177,6 @@ class TournamentTest(TestCase):
         """
         Скорость двух или более бегунов одинакова или два или более бегуна/ов финишируют одновременно.
         """
-        x = None
         # Произвольное число, но больше чем скорость бегуна.
         distance = 72
         if self.aa1.speed == self.aa2.speed == self.aa3.speed and distance > self.aa1.speed:
@@ -192,7 +191,7 @@ class TournamentTest(TestCase):
         for key in finishers.keys():
             # Сравним множество имен победителей, со множеством имен участников.
             # Все участники займут первое место
-            # Проверка работает корректно при условии что имена всех участников уникальны.
+            # Проверка работает корректно при условии, что имена всех участников уникальны.
             var_1 = set([finishers[key][index].name for index in range(len(finishers[key]))])
             var_2 = set([equal_p[index].name for index in range(len(equal_p))])
             self.assertTrue(var_1 == var_2)
