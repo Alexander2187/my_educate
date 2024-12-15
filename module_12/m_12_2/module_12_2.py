@@ -4,26 +4,25 @@
     Главное - схожая логика работы тестов
         и наличие всех перечисленных переопределённых методов из класса TestCase.
 """
-from unittest import TestCase
-import runner_and_tournament as r_t
+from unittest import TestCase, skipIf
+import lessons.module_12.m_12_2.RunAndTor as r_t
 
 
 class TournamentTest(TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(self):
         """
         setUpClass
         """
-        print(f'\n{self.setUpClass.__name__}:')
-        #
         self.all_results = []
 
+    @skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def setUp(self):
         """
         setUp
         """
-        print(f'\n{self.setUp.__name__}:')
-        #
         self.a = r_t.Runner("Первый", 100)
         self.b = r_t.Runner("Второй", 10)
         self.c = r_t.Runner("Третий", 1)
@@ -35,16 +34,14 @@ class TournamentTest(TestCase):
         """
         tearDownClass
         """
-        print(f'\n{self.tearDownClass.__name__}:')
-        #
-        for item in self.all_results:
-            print(*item)
+        # for item in self.all_results:
+        #     print(*item)
 
+    @skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_1(self):
         """
         Забег на дистанцию
         """
-        print(f'\n{self.test_1.__name__}:')
         #  Дистанция забега, любое целое число
         t_dist = 90
         x = r_t.Tournament(t_dist, *self.participants)
@@ -56,12 +53,11 @@ class TournamentTest(TestCase):
             self.all_results.append([f'\t"{res[index + 1]}" равно "{self.finishers[index]}"\tOk'])
         self.all_results.append([])
 
+    @skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_2(self):
         """
         Влияние результатов первого забега на последующий
         """
-        print(f'\n{self.test_2.__name__}:')
-        #
         self.a.distance, self.b.distance, self.c.distance = 0, 0, 0
         participants = self.a, self.b, self.c
         #
@@ -85,14 +81,13 @@ class TournamentTest(TestCase):
             self.all_results.append([f'\t"{res[index + 1]}" равно "{self.finishers[index]}"\tOk'])
         self.all_results.append([])
 
+    @skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_3(self):
         """
         Тестирование забегов на разные дистанции
         """
-        print(f'\n{self.test_3.__name__}:')
-        #
         self.all_results.append([f'{self.test_3.__name__}:'])
-        for distance in range(20, 0, -1):
+        for distance in range(2000, 0, -1):
             self.a.distance, self.b.distance, self.c.distance = 0, 0, 0
             participants = self.a, self.b, self.c
             x = r_t.Tournament(distance, self.a, self.b, self.c)
