@@ -61,7 +61,7 @@ users = cursor.fetchall()
 for user in users:
     print(f'Имя: {user[0]} | Почта: {user[1]} | Возраст: {user[2]} | Баланс: {user[3]}')
 
-#
+# Можно закомментировать
 """ Удаляет каждую запись в таблице. """
 for num in range(1, 11):
     cursor.execute(
