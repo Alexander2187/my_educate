@@ -74,7 +74,6 @@ cursor.execute(
 """
 Удалите из базы данных not_telegram.db запись с id = 6.
 """
-# Зачем? Ведь её там нет!
 cursor.execute(
     "DELETE FROM Users WHERE id = ?",
     (f'{6}',)
