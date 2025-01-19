@@ -1,5 +1,8 @@
 import sqlite3
 
+"""
+Д.З. 14_1
+"""
 connection = sqlite3.connect('not_telegram.db')
 cursor = connection.cursor()
 
