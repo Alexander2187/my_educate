@@ -60,10 +60,9 @@ cursor.execute(
 выведите их в консоль в следующем формате (без id):
 Имя: <username> | Почта: <email> | Возраст: <age> | Баланс: <balance>
 """
-users = cursor.fetchall()
-for user in users:
-    print(f'Имя: {user[0]} | Почта: {user[1]} | Возраст: {user[2]} | Баланс: {user[3]}')
-
+# users = cursor.fetchall()
+# for user in users:
+#     print(f'Имя: {user[0]} | Почта: {user[1]} | Возраст: {user[2]} | Баланс: {user[3]}')
 #
 #
 """ 
